@@ -1,4 +1,3 @@
-package recfun
 
 object Main {
   def main(args: Array[String]) {
@@ -8,7 +7,9 @@ object Main {
         print(pascal(col, row) + " ")
       println()
     }
+	
     print(balance("(if (zero? x) max (/ 1 x))".toList))
+	
     print(countChange(4,List(1,2)))
   }
 
@@ -18,9 +19,9 @@ object Main {
    * The following pattern of numbers is called Pascal's triangle
    * 
    *     1
-   *		1 1
-   *	 1 2 1
-   *	1 3 3 1
+   *	1 1
+   *   1 2 1
+   *  1 3 3 1
    * 1 4 6 4 1
    *    ...
    *    
@@ -78,6 +79,12 @@ object Main {
    * The next recursive function counts how many different ways you can make change for an amount, given a list of coin
    * denominations. For example, there are 3 ways to give change for 4 if you have coins with denomination 1 and 2: 
    * 1+1+1+1, 1+1+2, 2+2. The function takes an amount to change, and a list of unique denominations for the coins.
+   * 
+   * For example, the function returns the following number, given the money and coins.
+   * countChange(4,List(1,2)) = 3
+   * countChange(300,List(5,10,20,50,100,200,500)) = 1022
+   * countChange(301,List(5,10,20,50,100,200,500)) = 0
+   * countChange(300,List(500,5,50,100,20,200,10)) = 1022
    */
     def countChange(money: Int, coins: List[Int]): Int = {
       if (money == 0)
